@@ -3,4 +3,4 @@ pandas
 plotly
 altair
 requests
-google-generativeai
+google-generativeai>=0.8.6
