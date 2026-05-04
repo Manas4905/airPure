@@ -14,8 +14,13 @@ GENAI_IMPORT_ERROR = None
 try:
     from google import genai
 except Exception as e:
-    genai = None
-    GENAI_IMPORT_ERROR = str(e)
+    try:
+        import google.genai as genai
+    except Exception as e2:
+        genai = None
+        GENAI_IMPORT_ERROR = (
+            f"primary import failed: {e}; fallback import failed: {e2}"
+        )
 
 # Read Gemini API key from Streamlit secrets (with common fallback keys)
 KEY_SOURCE = "none"

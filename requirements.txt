@@ -1,5 +1,5 @@
 streamlit
-google-generativeai
+google-genai>=1.38.0
 pandas
 plotly
 altair
