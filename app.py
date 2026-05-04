@@ -9,10 +9,13 @@ import requests
 import os
 import hashlib
 
+genai = None
+GENAI_IMPORT_ERROR = None
 try:
     from google import genai
-except ImportError:
+except Exception as e:
     genai = None
+    GENAI_IMPORT_ERROR = str(e)
 
 # Read Gemini API key from Streamlit secrets (with common fallback keys)
 KEY_SOURCE = "none"
@@ -116,6 +119,12 @@ def get_ai_recommendation(prompt: str) -> str:
     if not GEMINI_API_KEY:
         return "API key not set. Please configure your Gemini API key."
     if genai is None:
+        if GENAI_IMPORT_ERROR:
+            return (
+                "The google-generativeai package could not be imported. "
+                f"Import error: {GENAI_IMPORT_ERROR}. "
+                "Please verify requirements and rebuild the app."
+            )
         return (
             "The google-generativeai package is not installed. "
             "Please add it to requirements.txt and restart the app."
