@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+altair
+requests
+google-generativeai
