@@ -468,7 +468,7 @@ if page == "🌏 India Overview":
     st.markdown("<br>", unsafe_allow_html=True)
 
     # Monthly trend
-    monthly_aqi = df.resample('M', on='date')['aqi_value'].mean().reset_index()
+    monthly_aqi = df.resample('ME', on='date')['aqi_value'].mean().reset_index()
     fig = px.line(monthly_aqi, x='date', y='aqi_value', color_discrete_sequence=["#7c3aed"])
     fig.update_traces(line=dict(width=2.5), fill='tozeroy',
                       fillcolor='rgba(124,58,237,0.07)')
@@ -507,7 +507,7 @@ elif page == "🗺️ Statewise AQI":
 
     if not state_df.empty:
         st.subheader(f"AQI Trend — {state}")
-        state_df_monthly = state_df.set_index('date').resample('M')['aqi_value'].mean().reset_index()
+        state_df_monthly = state_df.set_index('date').resample('ME')['aqi_value'].mean().reset_index()
         fig = px.line(state_df_monthly, x='date', y='aqi_value', color_discrete_sequence=["#7c3aed"])
         fig.update_traces(line=dict(width=2.5), fill='tozeroy',
                           fillcolor='rgba(124,58,237,0.07)')
@@ -585,7 +585,7 @@ elif page == "📍 Areawise AQI":
 
     if not area_df.empty:
         st.subheader(f"AQI Trend — {area}")
-        area_df_monthly = area_df.set_index('date').resample('M')['aqi_value'].mean().reset_index()
+        area_df_monthly = area_df.set_index('date').resample('ME')['aqi_value'].mean().reset_index()
         fig = px.line(area_df_monthly, x='date', y='aqi_value', color_discrete_sequence=["#db2777"])
         fig.update_traces(line=dict(width=2.5), fill='tozeroy',
                           fillcolor='rgba(219,39,119,0.07)')
