@@ -221,7 +221,7 @@ h3 {
     gap: 0.5rem !important;
     background: rgba(255,255,255,0.6) !important;
     backdrop-filter: blur(12px) !important;
-    border-radius: 50px !important;
+    border-radius: 10px !important;
     padding: 0.4rem !important;
     border: 1px solid rgba(124,58,237,0.15) !important;
     width: fit-content !important;
@@ -310,6 +310,24 @@ h3 {
     color: #1a1025 !important;
     box-shadow: 0 2px 12px rgba(124,58,237,0.07) !important;
     backdrop-filter: blur(10px) !important;
+}
+
+[data-testid="stSelectbox"] [role="combobox"],
+[data-testid="stSelectbox"] [data-baseweb="select"],
+[data-testid="stSelectbox"] [data-testid="stMarkdownContainer"] {
+    color: #4c1d95 !important;
+    font-weight: 600 !important;
+}
+
+div[data-baseweb="menu"] [role="option"],
+div[data-baseweb="menu"] [aria-selected="true"] {
+    color: #4c1d95 !important;
+}
+
+div[data-baseweb="menu"] [aria-selected="true"] {
+    background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(219,39,119,0.1)) !important;
+    color: #4c1d95 !important;
+    font-weight: 600 !important;
 }
 
 /* ── Primary button ── */
